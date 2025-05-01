@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Температура та вологість</title>
+    <script>
+        async function updateData() {
+            try {
+                const response = await fetch('/get-latest');
+                const result = await response.json();
+                document.getElementById('temp').textContent = result.temperature ?? '---';
+                document.getElementById('hum').textContent = result.humidity ?? '---';
+            } catch (error) {
+                console.error("Помилка завантаження даних:", error);
+            }
+        }
+
+        setInterval(updateData, 3000);  // Оновлювати кожні 3 секунди
+        window.onload = updateData;
+    </script>
+</head>
+<body>
+    <h1>Поточні дані з Arduino</h1>
+    <p>Температура: <span id="temp">---</span>°C</p>
+    <p>Вологість: <span id="hum">---</span>%</p>
+</body>
+</html>
