@@ -3,6 +3,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -13,7 +14,7 @@ body {
 }
 
 a {
-    text-decoration: None;
+    text-decoration: none;
 }
 
 img {
@@ -21,20 +22,101 @@ img {
 }
 
 .wrapper {
-    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(255, 249, 230, 1) 100%);
+    background: linear-gradient(135deg, #ffffff, #f1f4f9);
     width: 100%;
 }
 
-.container{
+.container {
     width: 1400px;
     margin: 0 auto;
 }
 
 header {
-    padding: 50px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: #ffffff;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .logo img {
-  height: 40px;
-  width: auto;
+    height: 50px;
+    width: auto;
+}
+
+.logo {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+header nav {
+    width: auto;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+header nav ul li {
+    position: relative;
+}
+
+header nav ul li a {
+    color: #333333;
+    font-weight: 400;
+}
+
+header nav ul li.active::after {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75%;
+    height: 3px;
+    border-radius: 5px;
+    background: #ff5757;
+}
+
+header nav ul li.active a {
+    color: #333333;
+    font-weight: 500;
+}
+
+header nav ul li:not(.active):not(.btn) a {
+    position: relative;
+    display: inline-block;
+    padding: 5px 10px;
+    color: #333333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+}
+
+header nav ul li:not(.active):not(.btn) a:hover {
+    background-color: #f0f0f0;
+    color: #ff5757;
+}
+
+header nav ul li.btn a {
+    background: #ff5757;
+    padding: 9px 17px;
+    border-radius: 5px;
+    color: white;
+    transition: background 0.3s ease;
+}
+
+header nav ul li.btn a:hover {
+    background: #e04040;
 }
