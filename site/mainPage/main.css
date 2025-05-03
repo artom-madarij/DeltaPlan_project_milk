@@ -104,6 +104,7 @@ header nav ul li:not(.active):not(.btn) a {
     border-radius: 6px;
 }
 
+
 header nav ul li:not(.active):not(.btn) a:hover {
     background-color: #f0f0f0;
     color: #ff5757;
