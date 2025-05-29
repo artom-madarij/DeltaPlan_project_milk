@@ -1,164 +1,207 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background: linear-gradient(135deg, #ffffff, #f1f4f9);
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .wrapper {
-    background: linear-gradient(135deg, #ffffff, #f1f4f9);
-    width: 100%;
+  padding-top: 100px;
+  width: 100%;
 }
 
 .container {
-    width: 1400px;
-    margin: 0 auto;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
+
+
+
+
+
+
+
+
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 60px;
-    background: #ffffff;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1400px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  z-index: 1000;
+  padding: 20px 60px;
+}
+
+header > .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .logo img {
-    height: 50px;
-    width: auto;
-}
-
-.logo {
-    display: inline-block;
-    transition: transform 0.2s ease;
+  height: 50px;
+  width: auto;
+  transition: transform 0.2s ease;
 }
 
 .logo:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
-header nav {
-    width: auto;
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  align-items: center;
 }
 
-header nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px;
+nav ul li {
+  position: relative;
 }
 
-header nav ul li {
-    position: relative;
+nav ul li a {
+  color: #333333;
+  font-weight: 400;
+  padding: 5px 10px;
+  border-radius: 6px;
+  transition: color 0.3s ease;
+  display: inline-block;
 }
 
-header nav ul li a {
-    color: #333333;
-    font-weight: 400;
+
+
+
+
+
+
+nav ul li:not(.active):not(.btn) a:hover {
+  color: #ff5757;
 }
 
-/* Старий стиль*/
-/*
-header nav ul li:not(.active):not(.btn) a {
-    position: relative;
-    display: inline-block;
-    padding: 5px 10px;
-    color: #333333;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border-radius: 6px;
+nav ul li:not(.active):not(.btn) a::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 3px;
+  background: #ff5757;
+  border-radius: 5px;
+  transition: width 0.3s ease;
 }
 
-header nav ul li:not(.active):not(.btn) a:hover {
-    background-color: #f0f0f0;
-    color: #ff5757;
+nav ul li:not(.active):not(.btn) a:hover::after {
+  width: 50%;
 }
 
-*/
 
-/* Новий стиль*/
-/* Початок нового стилю */
 
-header nav ul li:not(.btn) a {
-    position: relative;
-    display: inline-block;
-    padding: 5px 10px;
-    color: #333333;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    border-radius: 6px;
-    font-weight: 400;
+
+
+
+
+nav ul li.active a {
+  color: #333333;
+  font-weight: 500;
 }
 
-header nav ul li:not(.active):not(.btn) a:hover {
-    color: #ff5757;
+nav ul li.active::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  border-radius: 5px;
+  background: #ff5757;
 }
 
-header nav ul li:not(.active):not(.btn) a::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0%;
-    height: 3px;
-    background: #ff5757;
-    border-radius: 5px;
-    transition: width 0.3s ease;
+/* Кнопка Реєстрації */
+
+nav ul li.btn a {
+  background: #ff5757;
+  padding: 9px 17px;
+  border-radius: 5px;
+  color: white;
+  transition: background 0.3s ease;
 }
 
-header nav ul li:not(.active):not(.btn) a:hover::after {
-    width: 50%;
+nav ul li.btn a:hover {
+  background: #e04040;
 }
 
-/* Кінець */
 
 
-header nav ul li.active a {
-    color: #333333;
-    font-weight: 500;
+
+
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 0;
 }
 
-header nav ul li.active::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    height: 3px;
-    border-radius: 5px;
-    background: #ff5757;
+.hero--info {
+  max-width: 700px;
 }
 
-header nav ul li.btn a {
-    background: #ff5757;
-    padding: 9px 17px;
-    border-radius: 5px;
-    color: white;
-    transition: background 0.3s ease;
+.hero--info h3 {
+  font-weight: 600;
+  color: #ff5757;
+  margin-bottom: 10px;
 }
 
-header nav ul li.btn a:hover {
-    background: #e04040;
+.hero--info h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  color: #333333;
+}
+
+.hero--info p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #555555;
+}
+
+.hero button.btn {
+  background: #ff5757;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.hero button.btn:hover {
+  background: #e04040;
 }

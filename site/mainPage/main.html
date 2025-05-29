@@ -1,39 +1,79 @@
 <!doctype html>
-<html lang="en">
+<html lang="uk">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Main Page</title>
-    <link rel="stylesheet" href="main.css">
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>DeltaPlan</title>
+    <link rel="stylesheet" href="main.css" />
 </head>
 
 <body>
-    <div class = "wrapper">
-        <header class="container">
-            <a href="#" class="logo">
-                <img src="img.main/logoBG.png" alt="DeltaPlan Logo">
-            </a>
-            <nav>
-                <ul>
-                    <li class="active"><a href="#">Home</a></li><!--зверху вкладки -->
-                    <li><a href="#">Про Нас</a></li>
-                    <li><a href="#">Підписк</a></li>
-                    <li><a href="#">Home</a></li>
-                    <li class="btn"><a href="#">Регестрація</a></li>
-                </ul>
-            </nav>
-        </header>
-        <div class="hero container">
-            <div class="hero--info">
-                <h3>DeltaPlan</h3>
-                <h1>Пристрій моніторингу умов перевезень готових молочних продуктів</h1>
-                <p>Перевезення молока....бла бла бла</p>
-                <button class="btn">Консультація</button>
-            </div>
-            <img src="img.main/milk.png" alt="">
-        </div>
+<header>
+  <div class="container">
+    <a href="#home" class="logo">
+      <img src="img.main/logoBG.png" alt="DeltaPlan Logo" />
+    </a>
+    <nav>
+      <ul>
+        <li class="active"><a href="#home">Home</a></li>
+        <li><a href="#about">Про Нас</a></li>
+        <li><a href="#subscribe">Підписка</a></li>
+        <li><a href="#registration" class="btn">Регестрація</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="wrapper">
+  <section id="home" class="container hero">
+    <div class="hero--info">
+      <h3>DeltaPlan</h3>
+      <h1>Пристрій моніторингу умов перевезень готових молочних продуктів</h1>
+      <p>Перевезення молока....бла бла бла</p>
+      <button class="btn">Консультація</button>
     </div>
+    <img src="img.main/refrigerated.png" alt="Milk Product" />
+  </section>
+
+  <section id="about" class="container" style="padding: 100px 0;">
+    <h2>Про Нас</h2>
+    <p>Тут опис про компанію DeltaPlan...</p>
+  </section>
+
+  <section id="subscribe" class="container" style="padding: 100px 0;">
+    <h2>Підписка</h2>
+    <p>Тут опис про підписку...</p>
+  </section>
+
+  <section id="registration" class="container" style="padding: 100px 0;">
+    <h2>Регестрація</h2>
+    <p>Тут форма реєстрації або інформація...</p>
+  </section>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const navLi = document.querySelectorAll('nav ul li');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      if (pageYOffset >= sectionTop) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLi.forEach(li => {
+      li.classList.remove('active');
+      const a = li.querySelector('a');
+      if (a.getAttribute('href') === '#' + current) {
+        li.classList.add('active');
+      }
+    });
+  });
+</script>
 </body>
 </html>
